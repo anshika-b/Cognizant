@@ -1,0 +1,58 @@
+Big O Notation - 
+* Big O notation is a powerful tool used in computer science to describe the time complexity or space complexity of algorithms. 
+* Big-O is a way to express the upper bound of an algorithm’s time or space complexity.
+* Describes the asymptotic behavior (order of growth of time or space in terms of input size) of a function, not its exact value.
+* Can be used to compare the efficiency of different algorithms or data structures.
+* It provides an upper limit on the time taken by an algorithm in terms of the size of the input. We mainly consider the worst case scenario of the algorithm to find its time complexity in terms of Big O
+* It’s denoted as O(f(n)), where f(n) is a function that represents the number of operations (steps) that an algorithm performs to solve a problem of size n.
+* Given two functions f(n) and g(n), we say that f(n) is O(g(n)) if there exist constants c > 0 and n0 >= 0 such that f(n) <= c*g(n) for all n >= n0.
+* In simpler terms, f(n) is O(g(n)) if f(n) grows no faster than c*g(n) for all n >= n0 where c and n0 are constants.
+
+
+Best Case - When the element is found at minimum time and space it is called Best case.
+Average Case - The time and space required for an average (any element other then maximum or minimum) then it is called average case. 
+Worst Case - When the element is found at maximum time and space it is called Worst case.
+
+
+| Algorithm         | Best Case             | Average Case  | Worst Case                       |
+| ----------------- | --------------------- | ------------- | -------------------------------- |
+| Linear Search     | O(1) (first element)  | O(n/2) ≈ O(n) | O(n) (last element or not found) |
+| Binary Search     | O(1) (middle element) | O(log n)      | O(log n) (sorted input required) |
+
+
+For an e-commerce platform that needs fast, scalable, and responsive search, Binary Search is more suitable than Linear Search, but only under specific conditions.
+
+1. Linear Search: When It's Not Ideal
+Time Complexity: O(n)
+How It Works: Scans each element one by one.
+
+Drawbacks:
+* Slow for large datasets (e.g., 1 million+ products)
+* Doesn't require sorting, but sacrifices performance
+
+Use only when:
+* The dataset is very small
+* Data is unstructured or unsorted
+* You are doing a quick test or prototype
+
+2. Binary Search: More Suitable
+Time Complexity: O(log n)
+Requires data to be sorted by a key (e.g., productId)
+
+Benefits:
+* Much faster for large datasets
+* Ideal for static or infrequently changing data
+* Works well with indexed databases
+
+Best when:
+* You can maintain sorted arrays or use data structures like trees or indexes
+* Performance is a key concern for user experience
+* You’re doing repeated searches
+
+Real-World Approach: Combine with Indexing/Hashing
+In actual e-commerce systems:
+* A hybrid approach is used.
+* Often, product searches use:
+* Indexes (e.g., B-Trees or Tries) for text
+* HashMaps for exact matches (O(1) time)
+* Search engines like Elasticsearch for fast full-text queries
