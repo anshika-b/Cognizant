@@ -1,0 +1,27 @@
+Recursion is a technique where a method calls itself to solve smaller instances of a problem.
+Example (factorial):
+int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+Elegant for problems with repetitive substructure
+Useful when a problem can be divided into smaller, similar problems
+
+To calculate future value (FV) recursively:
+FV = PV * (1 + r)^n
+Where:
+PV = Present Value
+r = growth rate per period
+n = number of periods
+
+This can be recursively defined as:
+FV(n) = FV(n - 1) * (1 + r)
+Base case: FV(0) = PV
+
+Time Complexity
+T(n) = T(n−1) + O(1) → O(n)
+Each recursive call reduces periods by 1 → linear depth
+Optimization
+Problem:
+Stack overflow if n is very large
+Redundant computation if sub-results are reused
